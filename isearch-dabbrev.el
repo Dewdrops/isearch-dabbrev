@@ -82,7 +82,7 @@
         (progn
           (setq isearch-dabbrev/expansions-list-idx
                 (if (= isearch-dabbrev/expansions-list-idx
-                       (length isearch-dabbrev/expansions-list))
+                       (1- (length isearch-dabbrev/expansions-list)))
                     0
                   (1+ isearch-dabbrev/expansions-list-idx))))
       (let (expansion expansions-before expansions-after
