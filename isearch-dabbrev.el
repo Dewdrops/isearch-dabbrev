@@ -85,7 +85,9 @@
                        (length isearch-dabbrev/expansions-list))
                     0
                   (1+ isearch-dabbrev/expansions-list-idx))))
-      (let (expansion expansions-before expansions-after)
+      (let (expansion expansions-before expansions-after
+                      (dabbrev-check-all-buffers nil)
+                      (dabbrev-check-other-buffers nil))
         (setq isearch-dabbrev/expansions-list nil)
         (setq isearch-dabbrev/expansions-list-idx 0)
         (save-excursion
