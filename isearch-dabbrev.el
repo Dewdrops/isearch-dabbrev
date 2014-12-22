@@ -111,11 +111,11 @@
                 (append (reverse expansions-before) expansions-after)))))
 
     (when (not isearch-dabbrev/expansions-list)
-      (user-error "No dynamic expansion for \"%s\" found in this-buffer"
-                  isearch-string))
+      (error "No dynamic expansion for \"%s\" found in this-buffer"
+             isearch-string))
 
     (setq istring (nth isearch-dabbrev/expansions-list-idx
-                      isearch-dabbrev/expansions-list))
+                       isearch-dabbrev/expansions-list))
     (if (and isearch-case-fold-search
              (eq 'not-yanks search-upper-case))
         (setq istring (downcase istring)))
