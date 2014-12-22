@@ -6,7 +6,7 @@
 ;; URL: https://github.com/Dewdrops/isearch-dabbrev
 ;; Version: 0.1
 ;; Keywords: dabbrev isearch
-;; Package-Requires:
+;; Package-Requires: ((cl-lib "0.5"))
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -42,7 +42,7 @@
 ;;; Code:
 
 (require 'dabbrev)
-(require 'cl)
+(require 'cl-lib)
 
 (defvar isearch-dabbrev/expansions-list nil)
 
