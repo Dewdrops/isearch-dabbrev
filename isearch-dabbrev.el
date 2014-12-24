@@ -91,14 +91,20 @@
         (setq isearch-dabbrev/expansions-list nil)
         (setq isearch-dabbrev/expansions-list-idx 0)
         (save-excursion
-          (let ((point-current (point)))
+          (let ((point-start
+                 (ignore-errors
+                   (if isearch-forward
+                       (backward-sexp)
+                     (forward-sexp))
+                   (point))))
+            
             (dabbrev--reset-global-variables)
             (while (setq expansion
                          (dabbrev--find-expansion dabbrev-string
                                                   -1
                                                   isearch-case-fold-search))
               (setq expansions-after (cons expansion expansions-after)))
-            (goto-char point-current)
+            (goto-char point-start)
             (dabbrev--reset-global-variables)
             (while (setq expansion
                          (dabbrev--find-expansion dabbrev-string
